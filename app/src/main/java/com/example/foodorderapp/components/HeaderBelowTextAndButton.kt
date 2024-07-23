@@ -12,17 +12,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 @Composable
 fun HeaderBelowTextAndButton(
     modifier: Modifier = Modifier,
+    centered: Boolean = false,
     line1Text: String,
     line2Text: String? = null,
     lineGap: Dp = 12.dp,
     textButton: @Composable (() -> Unit)? = null,
 ) {
-    Column(modifier = modifier) {
+    Column(modifier = modifier,
+        horizontalAlignment = if (centered) Alignment.CenterHorizontally else Alignment.Start) {
         Text(text = line1Text,
             style = MaterialTheme.typography.bodyLarge.copy(
                 fontWeight = FontWeight.SemiBold,

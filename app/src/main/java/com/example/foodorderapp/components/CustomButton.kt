@@ -3,36 +3,31 @@ package com.example.foodorderapp.components
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun CustomButton(
     modifier: Modifier = Modifier,
-    colors: ButtonColors = ButtonDefaults.buttonColors(),
+    color: Color = MaterialTheme.colorScheme.primary,
     onClick: () -> Unit = {},
     content: @Composable RowScope.() -> Unit
 ) {
     Button(
-        modifier = modifier.fillMaxWidth().height(56.dp),
+        modifier = modifier.fillMaxWidth().heightIn(56.dp),
         shape = RoundedCornerShape(8.dp),
-        colors = colors,
+        colors = ButtonDefaults.buttonColors(
+            containerColor = color
+        ),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
         onClick = onClick) {
         content()
     }
 }
-
-//@Preview(showBackground = true)
-//@Composable
-//private fun ButtonView() {
-//    CustomButton() {
-//
-//    }
-//}

@@ -10,9 +10,18 @@ import com.example.foodorderapp.R
 
 // Set of Material typography styles to start with
 
-val fontPoppins = FontFamily(Font(R.font.poppins_regular, FontWeight.Normal))
+val poppinsRegular = FontFamily(Font(R.font.poppins_regular, FontWeight.Normal))
+val poppinsBold = FontFamily(Font(R.font.poppins_bold, FontWeight.Bold))
+val poppinsExtraBold = FontFamily(Font(R.font.poppins_extra_bold, FontWeight.ExtraBold))
+val poppinsSemiBold = FontFamily(Font(R.font.poppins_semi_bold, FontWeight.SemiBold))
+
 val gothicLight = FontFamily(Font(R.font.gothica_light, FontWeight.Light))
 val gothicRegular = FontFamily(Font(R.font.gothic_regular, FontWeight.Normal))
+val gothicSemiBold = FontFamily(Font(R.font.gothic_semi_bold, FontWeight.SemiBold))
+val gothicBold = FontFamily(Font(R.font.gothic_bold, FontWeight.Bold))
+
+
+
 val Typography = Typography(
     headlineLarge = TextStyle(
         fontFamily = gothicLight,
