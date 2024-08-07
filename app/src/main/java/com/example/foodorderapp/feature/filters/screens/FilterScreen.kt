@@ -21,7 +21,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.foodorderapp.R
 import com.example.foodorderapp.components.AppHeader
 import com.example.foodorderapp.components.CustomButton
-import com.example.foodorderapp.feature.filters.data.SelectedParameters
 import com.example.foodorderapp.feature.filters.data.mainList
 import com.example.foodorderapp.feature.filters.screens.components.ApplyFilterButtonText
 import com.example.foodorderapp.feature.filters.screens.components.FilterCommonLayout

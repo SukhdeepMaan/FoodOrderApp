@@ -2,8 +2,8 @@
     <string name="app_name">FoodOrderApp</string>
     <string name="welcome_to_tamang_food_service">Welcome to Tamang Food Service</string>
     <string name="sign_in">Sign In</string>
-    <string name="connect_with_facebook">Connect with Facebook</string>
-    <string name="connect_with_google">Connect with Google</string>
+    <string name="connect_with_facebook">CONNECT WITH FACEBOOK</string>
+    <string name="connect_with_google">CONNECT WITH GOOGLE</string>
     <string name="password">PASSWORD</string>
     <string name="enter_your_email_and_password">Enter your Email and Password</string>
     <string name="for_sign_in_enjoy_your_food">for sign in. Enjoy your food :)</string>

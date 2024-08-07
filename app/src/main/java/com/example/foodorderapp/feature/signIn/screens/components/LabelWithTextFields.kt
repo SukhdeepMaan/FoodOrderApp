@@ -15,7 +15,7 @@ fun EmailAddressTextWithInput(
     value: String,
     label: String = stringResource(R.string.email_address),
     onValueChange: (String) -> Unit,
-    keyboardOptions: KeyboardOptions
+    keyboardOptions: KeyboardOptions = KeyboardOptions()
 ) {
     LabelAndTextField(
         modifier = modifier,
