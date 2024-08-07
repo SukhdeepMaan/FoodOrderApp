@@ -3,6 +3,7 @@ package com.example.foodorderapp.feature.onBoarding.screen.components
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
@@ -20,20 +21,40 @@ import com.example.foodorderapp.feature.onBoarding.data.listOfOnBoardingData
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun PagerDesign(modifier: Modifier = Modifier, pagerState: PagerState) {
+fun PagerDesign(
+    modifier: Modifier = Modifier,
+    pagerState: PagerState
+) {
 
-    HorizontalPager(modifier = modifier.fillMaxSize(), state = pagerState) { page ->
-        PagerContent(data = listOfOnBoardingData[page])
+    HorizontalPager(
+        modifier = modifier.fillMaxSize(),
+        state = pagerState
+    ) { page ->
+        PagerContent(
+            data = listOfOnBoardingData[page],
+            pagerState = pagerState
+        )
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun PagerContent(modifier: Modifier = Modifier, data: OnBoardingData) {
+private fun PagerContent(
+    modifier: Modifier = Modifier,
+    pagerState: PagerState,
+    data: OnBoardingData
+) {
     LazyColumn(
         modifier = modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        contentPadding = PaddingValues(
+            top = 64.dp
+        )
     ) {
         item {
+            if (pagerState.currentPage == 0) {
+                CustomCircle()
+            }
             Row(
                 modifier = modifier,
                 verticalAlignment = Alignment.CenterVertically,

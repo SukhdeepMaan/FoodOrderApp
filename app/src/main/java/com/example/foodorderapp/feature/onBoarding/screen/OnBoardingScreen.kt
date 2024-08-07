@@ -1,19 +1,15 @@
 package com.example.foodorderapp.feature.onBoarding.screen
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.foodorderapp.feature.onBoarding.data.listOfOnBoardingData
 import com.example.foodorderapp.feature.onBoarding.screen.components.BottomRowButtons
-import com.example.foodorderapp.feature.onBoarding.screen.components.CustomCircle
 import com.example.foodorderapp.feature.onBoarding.screen.components.PagerDesign
 import com.example.foodorderapp.feature.onBoarding.screen.components.PagerIndicator
 import kotlinx.coroutines.launch
@@ -23,20 +19,15 @@ import kotlinx.coroutines.launch
 fun OnBoardingScreen(modifier: Modifier = Modifier) {
     val pagerState = rememberPagerState { listOfOnBoardingData.size }
     val scope = rememberCoroutineScope()
-    Box(modifier = modifier.fillMaxSize()) {
-        if (pagerState.currentPage == 0) {
-            CustomCircle()
-        }
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 64.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
+    OnBoardingSection(
+        modifier = modifier,
+        pagerContent = {
             PagerDesign(
-                modifier = Modifier.weight(1f),
+                modifier = it,
                 pagerState = pagerState
             )
+        },
+        indicators = {
             PagerIndicator(
                 modifier = Modifier.padding(vertical = 16.dp),
                 pageCount = listOfOnBoardingData.size,
@@ -46,6 +37,8 @@ fun OnBoardingScreen(modifier: Modifier = Modifier) {
                     pagerState.animateScrollToPage(page = it)
                 }
             }
+        },
+        buttons = {
             BottomRowButtons(
                 shouldShowPreviewButton = pagerState.currentPage != 0,
                 isNextButton = pagerState.currentPage != listOfOnBoardingData.size - 1,
@@ -61,6 +54,22 @@ fun OnBoardingScreen(modifier: Modifier = Modifier) {
                 },
             )
         }
-    }
+    )
 }
 
+
+@Composable
+fun OnBoardingSection(
+    modifier: Modifier = Modifier,
+    pagerContent: (@Composable (modifier: Modifier) -> Unit)? = null,
+    indicators: (@Composable () -> Unit)? = null,
+    buttons: (@Composable () -> Unit)? = null,
+) {
+    Column(
+        modifier = modifier
+    ) {
+        pagerContent?.invoke(Modifier.weight(1f))
+        indicators?.invoke()
+        buttons?.invoke()
+    }
+}
