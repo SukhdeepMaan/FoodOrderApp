@@ -8,7 +8,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.foodorderapp.feature.filters.screens.FilterScreen
+import com.example.foodorderapp.feature.onBoarding.screen.OnBoardingScreen
 import com.example.foodorderapp.feature.referToFriends.screen.ReferToFriendScreen
+import com.example.foodorderapp.feature.signIn.screens.sreenSignin.SignInScreen
+import com.example.foodorderapp.feature.signUp.screens.SignUpScreen
 import com.example.foodorderapp.ui.theme.FoodOrderAppTheme
 import com.example.foodorderapp.utils.rememberWindowInfo
 
@@ -21,11 +24,11 @@ class MainActivity : ComponentActivity() {
             FoodOrderAppTheme {
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background) {
-                    //SignInScreen()
+                    SignInScreen()
                     //ForgetPasswordStepOne()
                     //ForgetPasswordStepTwo()
-                    //SignUpScreen()
-                    //OnBoardingScreen()
+                  //  SignUpScreen()
+                   // OnBoardingScreen()
                     //SingInByNumberScreen()
                     //OtpVerificationScreen()
                     //FindRestaurantScreen()
@@ -36,7 +39,7 @@ class MainActivity : ComponentActivity() {
                     //PaymentMethodListScreen()
                     //AddSocialAccountScreen(windowInfo = windowInfo)
                     //ReferToFriendScreen( windowInfo = windowInfo)
-                    FilterScreen()
+                   // FilterScreen()
                 }
             }
         }

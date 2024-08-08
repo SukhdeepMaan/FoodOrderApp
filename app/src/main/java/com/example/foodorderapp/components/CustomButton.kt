@@ -21,7 +21,7 @@ fun CustomButton(
     content: @Composable RowScope.() -> Unit
 ) {
     Button(
-        modifier = modifier.fillMaxWidth().heightIn(56.dp),
+        modifier = modifier.heightIn(48.dp),
         shape = RoundedCornerShape(8.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = color

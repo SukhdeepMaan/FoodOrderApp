@@ -30,7 +30,7 @@ fun ClickableButtons(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         ForgetPasswordButton(onClick = forgetPassword)
-        SignInButton(onClick = signIn)
+        SignInButton(onClick = signIn, modifier = Modifier.fillMaxWidth())
         DoNotHaveAccountAndCreateAccount(
             doNotHaveAccount = doNotHaveAccount,
             createAccount = createAccount

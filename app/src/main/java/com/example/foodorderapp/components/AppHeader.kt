@@ -38,8 +38,7 @@ fun AppHeader(
         },
         leadingIcon = {
             IconButton(
-                onClick = onBack, modifier = Modifier
-                    .padding(start = 16.dp)
+                onClick = onBack
             ) {
                 AppIcon(icon = R.drawable.back_arrow)
             }
