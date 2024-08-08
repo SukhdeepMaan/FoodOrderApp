@@ -12,6 +12,10 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.PanoramaFishEye
+import androidx.compose.material.icons.filled.RemoveRedEye
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -30,15 +34,12 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.foodorderapp.R
 import com.example.foodorderapp.components.AppHeader
-import com.example.foodorderapp.components.RegisterLayout
+import com.example.foodorderapp.components.AppTextField
 import com.example.foodorderapp.components.SignWithGoogleFacebook
-import com.example.foodorderapp.feature.signIn.screens.components.ClickableButtons
 import com.example.foodorderapp.feature.signIn.screens.components.DoNotHaveAccountAndCreateAccount
-import com.example.foodorderapp.feature.signIn.screens.components.EmailAddressTextWithInput
 import com.example.foodorderapp.feature.signIn.screens.components.ForgetPasswordButton
 import com.example.foodorderapp.feature.signIn.screens.components.NamePassTextOrButtonBelowHeader
 import com.example.foodorderapp.feature.signIn.screens.components.OrText
-import com.example.foodorderapp.feature.signIn.screens.components.PasswordWithTextField
 import com.example.foodorderapp.feature.signIn.screens.components.SignInButton
 import com.example.foodorderapp.feature.signIn.screens.components.WelcomeText
 import com.example.foodorderapp.ui.theme.googleColor
@@ -51,6 +52,9 @@ fun SignInScreen(modifier: Modifier = Modifier) {
     val emailFocusRequester = remember { FocusRequester() }
     val passwordFocusRequester = remember { FocusRequester() }
     val focusManager = LocalFocusManager.current
+    var isPasswordShow by remember {
+        mutableStateOf(true)
+    }
 
     LaunchedEffect(key1 = Unit) {
         emailFocusRequester.requestFocus()
@@ -65,7 +69,8 @@ fun SignInScreen(modifier: Modifier = Modifier) {
         header = {
             AppHeader(
                 title = stringResource(id = R.string.sign_in),
-            ) {}
+            ) {
+            }
         },
         welcome = {
             Column(
@@ -78,24 +83,35 @@ fun SignInScreen(modifier: Modifier = Modifier) {
         inputFields = {
             Column {
                 Spacer(modifier = Modifier.heightIn(24.dp))
-                EmailAddressTextWithInput(
+                AppTextField(
                     modifier = Modifier.focusRequester(emailFocusRequester),
-                    showIcon = checkIcon,
                     value = emailAddress,
-                    onValueChange = { emailAddress = it },
+                    label = stringResource(id = R.string.email_address),
+                    trailingIcon = Icons.Default.Check,
                     keyboardOptions = KeyboardOptions(
-                        keyboardType = KeyboardType.Phone,
-                        imeAction = ImeAction.Next
+                        imeAction = ImeAction.Next,
+                        keyboardType = KeyboardType.Email
                     )
-                )
+                ) {
+                    emailAddress = it
+                }
                 Spacer(modifier = Modifier.height(16.dp))
-                PasswordWithTextField(
-                    modifier = Modifier
-                        .padding(top = 16.dp)
-                        .focusRequester(passwordFocusRequester),
+                AppTextField(
                     value = password,
-                    onValueChange = { password = it }
-                )
+                    label = stringResource(id = R.string.password),
+                    trailingIcon = if (isPasswordShow) Icons.Default.RemoveRedEye else Icons.Default.PanoramaFishEye,
+                    isShowPassword = isPasswordShow,
+                    onTralingIconClick = {
+                        isPasswordShow = !isPasswordShow
+                    },
+                    keyboardOptions = KeyboardOptions(
+                        imeAction = ImeAction.Done,
+                        keyboardType = KeyboardType.Password
+                    )
+                ) {
+                    password = it
+                }
+
             }
         },
         forgotPassword = {

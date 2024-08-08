@@ -24,16 +24,19 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.example.foodorderapp.ui.theme.outlineColor
 import com.example.foodorderapp.ui.theme.poppinsRegular
+import com.example.foodorderapp.utils.onBooleanChange
 import com.example.foodorderapp.utils.onValueChange
 
 @Composable
 fun InputTextField(
     modifier: Modifier = Modifier,
     value: String,
+    isPassword: Boolean = false,
     leadingIcon: @Composable (() -> Unit)? = null,
     @DrawableRes trailingIcon: Int? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     showInputValue: Boolean = true,
+    onPasswordChange: onBooleanChange = {},
     onValueChange: onValueChange
 ) {
     BasicTextField(
@@ -48,10 +51,12 @@ fun InputTextField(
         value = value,
         onValueChange = onValueChange
     ) {
+
         Column {
             Row(
                 modifier = Modifier.padding(vertical = 4.dp),
-                verticalAlignment = Alignment.CenterVertically)
+                verticalAlignment = Alignment.CenterVertically
+            )
             {
                 leadingIcon?.let {
                     Box(Modifier.padding(horizontal = 8.dp)) {
@@ -61,10 +66,21 @@ fun InputTextField(
                 Box(modifier = Modifier.weight(1f)) {
                     it.invoke()
                 }
-                AppIcon(
-                    modifier = Modifier.align(Alignment.Top),
-                    icon = trailingIcon,
-                )
+                if (isPassword)
+                    AppIcon(
+                        modifier = Modifier
+                            .align(Alignment.Top)
+                            .clickable {
+                                onPasswordChange(!showInputValue)
+                            },
+                        icon = trailingIcon,
+                    )
+                else
+                    AppIcon(
+                        modifier = Modifier
+                            .align(Alignment.Top),
+                        icon = trailingIcon,
+                    )
             }
             HorizontalDivider(color = outlineColor)
         }
@@ -102,7 +118,8 @@ fun InputTextField2(
         Column {
             Row(
                 modifier = Modifier.padding(vertical = 4.dp),
-                verticalAlignment = Alignment.CenterVertically)
+                verticalAlignment = Alignment.CenterVertically
+            )
             {
                 leadingIcon?.let {
                     Box(Modifier.padding(horizontal = 8.dp)) {
@@ -120,7 +137,8 @@ fun InputTextField2(
             }
             HorizontalDivider(
                 thickness = 1.5.dp,
-                color = outlineColor)
+                color = outlineColor
+            )
         }
     }
 }
