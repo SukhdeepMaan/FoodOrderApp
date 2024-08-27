@@ -6,25 +6,57 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import com.example.foodorderapp.feature.filters.screens.FilterScreen
-import com.example.foodorderapp.feature.onBoarding.screen.OnBoardingScreen
-import com.example.foodorderapp.feature.referToFriends.screen.ReferToFriendScreen
-import com.example.foodorderapp.feature.signIn.screens.sreenSignin.SignInScreen
-import com.example.foodorderapp.feature.signUp.screens.SignUpScreen
+import androidx.navigation.compose.rememberNavController
+import com.example.foodorderapp.components.NewCustomScaffold
+import com.example.foodorderapp.feature.home.screens.homeScreen.HomeScreen
 import com.example.foodorderapp.ui.theme.FoodOrderAppTheme
+import com.example.foodorderapp.utils.NaviBar.NavigationBarManager
+import com.example.foodorderapp.utils.TopBarManager
 import com.example.foodorderapp.utils.rememberWindowInfo
+import com.example.foodorderapp.utils.typeSafeNavigation.AppNavGraph
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
         setContent {
+            val navController = rememberNavController()
             val windowInfo = rememberWindowInfo()
             FoodOrderAppTheme {
-                Surface(modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background) {
-                    SignInScreen()
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    NewCustomScaffold(
+                        topBar = {
+                            TopBarManager(
+                                navController = navController,
+                            )
+                        },
+                        navigationBar = {
+                            // TODO crate a list of screens that need a navigationBar otherwise pass null if you want to check condition inside the NavigationBarManager that is also possible but null value will have to be passed by callback function
+                            NavigationBarManager(
+                                navController = navController,
+                                windowInfo = windowInfo
+                            )
+                        }
+
+                    ) {
+                        AppNavGraph(navController = navController, windowInfo = windowInfo)
+                        //HomeScreen(navController = navController)
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*  //SignInScreen()
                     //ForgetPasswordStepOne()
                     //ForgetPasswordStepTwo()
                   //  SignUpScreen()
@@ -39,9 +71,10 @@ class MainActivity : ComponentActivity() {
                     //PaymentMethodListScreen()
                     //AddSocialAccountScreen(windowInfo = windowInfo)
                     //ReferToFriendScreen( windowInfo = windowInfo)
-                   // FilterScreen()
-                }
-            }
-        }
-    }
-}
+                    //FilterScreen()
+                    */
+
+/*//SearchScreen(windowInfo = windowInfo)
+                     //FeaturedPartnersScreen(windowInfo = windowInfo)
+                     //HomeScreen()
+                     //AccountSettingScreen()*/

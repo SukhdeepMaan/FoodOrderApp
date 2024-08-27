@@ -68,3 +68,48 @@ fun PagerIndicator(
         }
     }
 }
+
+
+@Composable
+fun PagerIndicator2(
+    modifier: Modifier = Modifier,
+    pageCount: Int,
+    currentPage: Int,
+    onCurrentPageChanged: (Int) -> Unit
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.End,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        repeat(pageCount) { counter ->
+            // Animating width
+            val width by animateDpAsState(
+                targetValue = if (currentPage == counter) 16.dp else 12.dp,
+                animationSpec = tween(durationMillis = 300), label = ""
+            )
+
+            Canvas(
+                modifier = Modifier
+                    .padding(end = 4.dp)
+                    .height(8.dp)
+                    .width(width)
+                    .clickable(
+                        indication = null,
+                        interactionSource = remember {
+                            MutableInteractionSource()
+                        }
+                    ) {
+                        onCurrentPageChanged(counter)
+                    }
+                    .padding(2.dp)
+            ) {
+                drawRoundRect(
+                    color = if (currentPage == counter) Color.White else Color.LightGray,
+                    size = size,
+                    cornerRadius = CornerRadius(8.dp.toPx())
+                )
+            }
+        }
+    }
+}

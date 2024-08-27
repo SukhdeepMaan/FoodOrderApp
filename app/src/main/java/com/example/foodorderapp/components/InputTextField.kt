@@ -27,6 +27,35 @@ import com.example.foodorderapp.ui.theme.poppinsRegular
 import com.example.foodorderapp.utils.onBooleanChange
 import com.example.foodorderapp.utils.onValueChange
 
+/**
+ * A customizable input text field composable that supports password input, leading and trailing icons,
+ * and various other configurations. It is suitable for both standard and password input fields.
+ *
+ * @param modifier A [Modifier] to be applied to the text field, allowing for customization of its size, layout, and other properties.
+ * Default value is `Modifier`.
+ *
+ * @param value A [String] representing the current text value of the input field. This parameter is required.
+ *
+ * @param isPassword A [Boolean] indicating whether the text field is for password input. If `true`, the trailing icon will
+ * trigger password visibility toggling. Default value is `false`.
+ *
+ * @param leadingIcon An optional [Composable] lambda that provides a leading icon to be displayed at the start of the text field. Default is `null`.
+ *
+ * @param trailingIcon An optional drawable resource ID for the trailing icon. This is typically used for actions like
+ * toggling password visibility. Default is `null`.
+ *
+ * @param keyboardOptions A [KeyboardOptions] object that configures the software keyboard for the text field, such as input type and capitalization.
+ * Default value is `KeyboardOptions.Default`.
+ *
+ * @param showInputValue A [Boolean] indicating whether the text value should be visible. If `false`, the text is obfuscated,
+ * typically used for password fields. Default value is `true`.
+ *
+ * @param onPasswordChange A lambda function that is invoked when the trailing icon for password visibility is clicked.
+ * This function receives the new visibility state. Default value is an empty lambda.
+ *
+ * @param onValueChange A lambda function that is triggered whenever the text value changes. It receives the updated text value as a parameter. This parameter is required.
+ */
+
 @Composable
 fun InputTextField(
     modifier: Modifier = Modifier,
@@ -51,7 +80,6 @@ fun InputTextField(
         value = value,
         onValueChange = onValueChange
     ) {
-
         Column {
             Row(
                 modifier = Modifier.padding(vertical = 4.dp),
@@ -87,6 +115,33 @@ fun InputTextField(
     }
 }
 
+
+/**
+ * A flexible input text field composable that supports leading and trailing icons, focus control,
+ * and various other configurations. It is suitable for standard input fields and general text input.
+ *
+ * @param modifier A [Modifier] to be applied to the text field, allowing for customization of its size, layout, and other properties.
+ * Default value is `Modifier`.
+ *
+ * @param enabled A [Boolean] indicating whether the text field is enabled. When `false`, the text field is not editable.
+ * Default value is `true`.
+ *
+ * @param value A [String] representing the current text value of the input field. This parameter is required.
+ *
+ * @param leadingIcon An optional [Composable] lambda that provides a leading icon to be displayed at the start of the text field. Default is `null`.
+ *
+ * @param trailingIcon An optional [Composable] lambda that provides a trailing icon to be displayed at the end of the text field. Default is `null`.
+ *
+ * @param keyboardOptions A [KeyboardOptions] object that configures the software keyboard for the text field, such as input type and capitalization.
+ * Default value is `KeyboardOptions.Default`.
+ *
+ * @param focusRequester A [FocusRequester] that allows you to control the focus state of the text field. Default value is `FocusRequester()`.
+ *
+ * @param showInputValue A [Boolean] indicating whether the text value should be visible. If `false`, the text is obfuscated,
+ * typically used for password fields. Default value is `true`.
+ *
+ * @param onValueChange A lambda function that is triggered whenever the text value changes. It receives the updated text value as a parameter. This parameter is required.
+ */
 
 @Composable
 fun InputTextField2(
@@ -142,6 +197,23 @@ fun InputTextField2(
         }
     }
 }
+
+/**
+ * A composable function that displays a customizable trailing icon. The icon can be either a drawable resource
+ * or an [ImageVector], and can handle click actions through a lambda function.
+ *
+ * @param modifier A [Modifier] to be applied to the icon, allowing for customization of its size, layout, and behavior.
+ * Default value is `Modifier`.
+ *
+ * @param tint A [Color] to tint the icon. If not specified, the icon will be displayed with its default color.
+ * Default value is `Color.Unspecified`.
+ *
+ * @param icon An optional drawable resource ID to be used as the icon. If provided, this icon will be displayed. Default is `null`.
+ *
+ * @param vectorIcon An optional [ImageVector] to be used as the icon. If provided, this vector image will be displayed. Default is `null`.
+ *
+ * @param onClick A lambda function that will be invoked when the icon is clicked. Default value is an empty lambda.
+ */
 
 @Composable
 fun CustomTrailingIcon(

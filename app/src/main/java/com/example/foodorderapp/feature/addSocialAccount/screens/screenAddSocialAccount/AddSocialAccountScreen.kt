@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.foodorderapp.R
 import com.example.foodorderapp.components.AppHeader
 import com.example.foodorderapp.feature.addSocialAccount.screens.screenAddSocialAccount.components.AddSocialAccountCommonLayout
@@ -27,7 +28,11 @@ import com.example.foodorderapp.utils.WindowInfo
  */
 
 @Composable
-fun AddSocialAccountScreen(modifier: Modifier = Modifier, windowInfo: WindowInfo) {
+fun AddSocialAccountScreen(
+    modifier: Modifier = Modifier,
+    windowInfo: WindowInfo,
+    navController: NavHostController
+) {
 
     val isCompact = windowInfo.screenWidthType == WindowInfo.WindowType.Compact
 

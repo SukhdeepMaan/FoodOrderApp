@@ -19,26 +19,35 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.foodorderapp.components.RegisterLayout
-import com.example.foodorderapp.feature.location.screen.components.AddressSearchField
 import com.example.foodorderapp.feature.location.screen.components.CurrentLocationButton
 import com.example.foodorderapp.feature.location.screen.components.FindNearByRestaurantText
 import com.example.foodorderapp.feature.location.screen.components.PleaseEnterYourLocationText
+import com.example.foodorderapp.feature.location.screen.components.SearchField
 import com.example.foodorderapp.feature.location.screen.components.SearchedItems
 import com.example.foodorderapp.feature.location.screen.components.TopBarForLocationScreen
+import com.example.foodorderapp.utils.typeSafeNavigation.Home
 
 @Composable
-fun FindRestaurantScreen(modifier: Modifier = Modifier) {
+fun FindRestaurantScreen(
+    modifier: Modifier = Modifier,
+    navController: NavHostController
+) {
     var searchAddress by remember { mutableStateOf("") }
     var totalHeight by remember { mutableIntStateOf(0) }
     val localDensity = LocalDensity.current
     Box(modifier = modifier.fillMaxSize()) {
         RegisterLayout(
-            topBar = { TopBarForLocationScreen(
-                modifier = Modifier.onSizeChanged {
-                  totalHeight += it.height
-                },
-                onBack = {}) },
+            topBar = {
+                TopBarForLocationScreen(
+                    modifier = Modifier.onSizeChanged {
+                        totalHeight += it.height
+                    },
+                    onBack = {
+                        navController.popBackStack()
+                    })
+            },
             content = {
                 item {
                     Column(
@@ -56,13 +65,16 @@ fun FindRestaurantScreen(modifier: Modifier = Modifier) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(bottom = 24.dp),
-                            onClick = {}
+                            onClick = {
+                                // TODO: fetch current location and pass
+                            }
                         )
-                        AddressSearchField(
+                        SearchField(
                             modifier = Modifier.fillMaxWidth(),
                             value = searchAddress,
                             onClear = { searchAddress = "" },
-                            onValueChange = { searchAddress = it
+                            onValueChange = {
+                                searchAddress = it
                             }
                         )
                     }
@@ -82,7 +94,10 @@ fun FindRestaurantScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 24.dp)
-                    .offset(y = with(localDensity) { totalHeight.toDp() + 26.dp })
+                    .offset(y = with(localDensity) { totalHeight.toDp() + 26.dp }),
+                onClick = {
+                    navController.navigate(Home(userId = 1))
+                }
             )
         }
     }

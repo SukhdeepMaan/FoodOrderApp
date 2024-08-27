@@ -69,4 +69,18 @@
     <string name="clear_all">CLEAR ALL</string>
     <string name="price_range">PRICE RANGE</string>
     <string name="apply_filters">APPLY FILTERS</string>
+    <string name="search_by_food_or_restaurant">Search by food or restaurant</string>
+    <string name="featured_partners">Featured Partners</string>
+    <string name="see_all">See all</string>
+    <string name="featured_partners_header">Featured \nPartners</string>
+    <string name="best_picks_restaurants_by_team">Best Picks \nRestaurants by \n team</string>
+    <string name="all_restaurants">All Restaurants</string>
+    <string name="account_setting">Account Setting</string>
+    <string name="update_your_settings_like_notifications_payments_profile_edit_etc">Update your settings like notifications, payments, profile edit etc.</string>
+    <string name="this_feature_is_currently_under_development">This feature is currently \nunder development</string>
+    <string name="filter">Filter</string>
+    <string name="delivery_to">Delivery to</string>
+    <string name="location_picker">Location Picker</string>
+    <string name="we_have_sent_an_instructions_email_to">We have sent an instructions email to</string>
+    <string name="sajin_tamang_gmail_com">sajin tamang@gmail.com.</string>
 </resources>

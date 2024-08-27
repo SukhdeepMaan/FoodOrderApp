@@ -29,7 +29,10 @@ import com.example.foodorderapp.R
 import com.example.foodorderapp.components.AppIcon
 
 @Composable
-fun SearchedItems(modifier: Modifier = Modifier) {
+fun SearchedItems(
+    modifier: Modifier = Modifier,
+    onClick: (LocationDetail) -> Unit
+) {
     var iconWidth by remember {
         mutableStateOf(0.dp)
     }
@@ -40,11 +43,9 @@ fun SearchedItems(modifier: Modifier = Modifier) {
     ) {
         items(locations, key = { locations.indexOf(it) }) { location ->
             EachItemDesign(location = location,
-                iconSize = {
-                    iconWidth = it
-                }
-            ) {
-            }
+                iconSize = { iconWidth = it },
+                onClick = onClick
+            )
             HorizontalDivider(
                 modifier = Modifier
                     .wrapContentSize()

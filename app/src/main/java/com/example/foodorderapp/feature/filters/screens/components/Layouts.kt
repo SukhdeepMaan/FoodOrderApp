@@ -12,12 +12,12 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun FilterCommonLayout(
     modifier: Modifier = Modifier,
-    topBar: @Composable () -> Unit,
+    topBar: @Composable (() -> Unit)? = null,
     content: LazyListScope.() -> Unit,
     bottomButton: @Composable () -> Unit
 ) {
     Column(modifier = modifier.fillMaxSize()) {
-        topBar()
+        topBar.let { it?.invoke() }
         LazyColumn(
             modifier = Modifier.weight(1f),
             contentPadding = PaddingValues(top = 16.dp),

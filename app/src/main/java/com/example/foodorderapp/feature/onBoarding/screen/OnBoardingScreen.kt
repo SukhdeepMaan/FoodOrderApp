@@ -8,15 +8,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import com.example.foodorderapp.feature.auth.Auth
 import com.example.foodorderapp.feature.onBoarding.data.listOfOnBoardingData
 import com.example.foodorderapp.feature.onBoarding.screen.components.BottomRowButtons
 import com.example.foodorderapp.feature.onBoarding.screen.components.PagerDesign
 import com.example.foodorderapp.feature.onBoarding.screen.components.PagerIndicator
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen(modifier: Modifier = Modifier) {
+fun OnBoardingScreen(modifier: Modifier = Modifier, navController: NavHostController, ) {
     val pagerState = rememberPagerState { listOfOnBoardingData.size }
     val scope = rememberCoroutineScope()
     OnBoardingSection(
@@ -50,6 +51,9 @@ fun OnBoardingScreen(modifier: Modifier = Modifier) {
                 nextOnClick = {
                     scope.launch {
                         pagerState.animateScrollToPage(page = pagerState.currentPage + 1)
+                    }
+                    if (pagerState.currentPage == listOfOnBoardingData.size - 1) {
+                        navController.navigate(Auth)
                     }
                 },
             )

@@ -61,24 +61,20 @@ val Typography = Typography(
         fontSize = 16.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp,
-        color = bodyColor
     ),
     bodyMedium = TextStyle(
         fontFamily = gothicRegular,
-        fontWeight = FontWeight.SemiBold,
+        fontWeight = FontWeight.Normal,
         fontSize = 14.sp,
-        color = bodyColor
     ),
     bodySmall = TextStyle(
         fontFamily = gothicRegular,
         fontWeight = FontWeight.Normal,
         fontSize = 12.sp,
-        color = bodyColor
     ),
     labelLarge = TextStyle(
         fontFamily = gothicRegular,
         fontWeight = FontWeight.Medium,
-        fontSize = 14.sp
     ),
     labelMedium = TextStyle(
         fontFamily = gothicRegular,

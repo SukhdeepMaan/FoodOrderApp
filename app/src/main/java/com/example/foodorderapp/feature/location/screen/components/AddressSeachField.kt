@@ -17,7 +17,7 @@ import com.example.foodorderapp.R
 import com.example.foodorderapp.components.AppIcon
 
 @Composable
-fun AddressSearchField(
+fun SearchField(
     modifier: Modifier = Modifier,
     value: String,
     onClear: () -> Unit,

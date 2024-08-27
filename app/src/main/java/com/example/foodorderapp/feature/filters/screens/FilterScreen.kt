@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.example.foodorderapp.R
 import com.example.foodorderapp.components.AppHeader
 import com.example.foodorderapp.components.CustomButton
@@ -32,16 +33,13 @@ import com.example.foodorderapp.feature.filters.screens.components.updated
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun FilterScreen(modifier: Modifier = Modifier) {
+fun FilterScreen(modifier: Modifier = Modifier, navController: NavHostController) {
 
     val filterViewModel = viewModel<FilterViewModel>()
     val uiState = filterViewModel.selectedParametersState.collectAsState().value
 
     FilterCommonLayout(
         modifier = modifier,
-        topBar = {
-            AppHeader(title = stringResource(R.string.filters), onBack = {})
-        },
         content = {
             mainList.forEach { (parameter, list) ->
                 item {
@@ -101,8 +99,10 @@ fun FilterScreen(modifier: Modifier = Modifier) {
         },
         bottomButton = {
             CustomButton(
-                modifier = Modifier.padding(16.dp),
-            ) { ApplyFilterButtonText() }
+                modifier = Modifier.fillMaxWidth().padding(16.dp),
+                onClick = { navController.popBackStack() }, // passing filtered data is pending
+                content = { ApplyFilterButtonText() }
+            )
         }
     )
 }
