@@ -17,7 +17,7 @@ import com.example.foodorderapp.ui.theme.FoodOrderAppTheme
 import com.example.foodorderapp.utils.NaviBar.NavigationBarManager
 import com.example.foodorderapp.utils.TopBarManager
 import com.example.foodorderapp.utils.rememberWindowInfo
-import com.example.foodorderapp.utils.typeSafeNavigation.AppNavGraph
+import com.example.foodorderapp.typeSafeNavigation.AppNavGraph
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

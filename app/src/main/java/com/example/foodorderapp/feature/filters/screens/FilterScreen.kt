@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.foodorderapp.R
-import com.example.foodorderapp.components.AppHeader
 import com.example.foodorderapp.components.CustomButton
 import com.example.foodorderapp.feature.filters.data.mainList
 import com.example.foodorderapp.feature.filters.screens.components.ApplyFilterButtonText

@@ -20,12 +20,11 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.foodorderapp.components.RegisterLayout
-import com.example.foodorderapp.feature.auth.Auth
-import com.example.foodorderapp.feature.auth.forgetPassword.screens.components.ForgetTopBar
+import com.example.foodorderapp.feature.auth.navigation.Auth
 import com.example.foodorderapp.feature.auth.forgetPassword.screens.components.HeaderForgetPassword
 import com.example.foodorderapp.feature.auth.forgetPassword.screens.components.ResetPasswordButton
 import com.example.foodorderapp.feature.auth.forgetPassword.screens.components.TextAndButtonBelowHeader
-import com.example.foodorderapp.feature.auth.signIn.screens.components.EmailAddressTextWithInput
+import com.example.foodorderapp.feature.auth.signIn.ui.screens.components.EmailAddressTextWithInput
 
 @Composable
 fun ForgetPasswordStepOne(modifier: Modifier = Modifier, navController: NavHostController) {

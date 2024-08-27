@@ -13,14 +13,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.foodorderapp.R
-import com.example.foodorderapp.components.AppHeader
 import com.example.foodorderapp.components.RegisterLayout
-import com.example.foodorderapp.feature.auth.Auth
+import com.example.foodorderapp.feature.auth.navigation.Auth
 import com.example.foodorderapp.feature.auth.signUp.screens.components.CreateAccountText
 import com.example.foodorderapp.feature.auth.signUp.screens.components.HintLineWithButton
 import com.example.foodorderapp.feature.auth.signUp.screens.components.SomeButtonsTogether
 import com.example.foodorderapp.feature.auth.signUp.screens.components.SomeLabelAndFieldsTogether
-import com.example.foodorderapp.utils.typeSafeNavigation.Home
+import com.example.foodorderapp.typeSafeNavigation.Home
 
 @Composable
 fun SignUpScreen(

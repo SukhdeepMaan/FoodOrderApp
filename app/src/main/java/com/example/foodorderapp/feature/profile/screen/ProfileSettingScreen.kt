@@ -42,7 +42,8 @@ fun ProfileSettingScreen(modifier: Modifier = Modifier, navController: NavContro
             item {
                 SettingTitle(
                     modifier = Modifier.padding(16.dp),
-                    title = title)
+                    title = title
+                )
             }
             items(list) { item ->
                 EachItemDesign(
@@ -55,14 +56,14 @@ fun ProfileSettingScreen(modifier: Modifier = Modifier, navController: NavContro
                                 it as AccountBasicSetting
                                 navController.navigate(it.route)
                             }
+
                             is NotificationSetting -> {}
                             is MoreSetting -> {
                                 navController.navigate(Profile.ProfileInformation)
                             }
                         }
                     },
-                    isSwitched = {
-                            switch, item ->
+                    isSwitched = { switch, item ->
                         item as NotificationSetting
                         settingViewModel.updatePushNotification(
                             value = switch,

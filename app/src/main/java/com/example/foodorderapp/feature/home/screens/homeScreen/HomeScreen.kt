@@ -16,9 +16,9 @@ import com.example.foodorderapp.feature.home.screens.homeScreen.components.AllRe
 import com.example.foodorderapp.feature.home.screens.homeScreen.components.FeaturedPartners
 import com.example.foodorderapp.feature.home.screens.homeScreen.components.HomeCommonLayout
 import com.example.foodorderapp.feature.home.screens.homeScreen.components.OfferDesign
-import com.example.foodorderapp.utils.typeSafeNavigation.AllRestaurant
-import com.example.foodorderapp.utils.typeSafeNavigation.BestPickRestaurant
-import com.example.foodorderapp.utils.typeSafeNavigation.FeaturedPartner
+import com.example.foodorderapp.typeSafeNavigation.AllRestaurant
+import com.example.foodorderapp.typeSafeNavigation.BestPickRestaurant
+import com.example.foodorderapp.typeSafeNavigation.FeaturedPartner
 
 @Composable
 fun HomeScreen(

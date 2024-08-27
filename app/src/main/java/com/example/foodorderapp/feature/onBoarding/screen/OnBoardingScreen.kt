@@ -1,25 +1,27 @@
 package com.example.foodorderapp.feature.onBoarding.screen
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import com.example.foodorderapp.feature.auth.Auth
+import com.example.foodorderapp.feature.auth.navigation.Auth
 import com.example.foodorderapp.feature.onBoarding.data.listOfOnBoardingData
 import com.example.foodorderapp.feature.onBoarding.screen.components.BottomRowButtons
 import com.example.foodorderapp.feature.onBoarding.screen.components.PagerDesign
 import com.example.foodorderapp.feature.onBoarding.screen.components.PagerIndicator
+import com.example.foodorderapp.utils.LocalNavigation
 import kotlinx.coroutines.launch
 
 @Composable
-fun OnBoardingScreen(modifier: Modifier = Modifier, navController: NavHostController, ) {
+fun OnBoardingScreen(modifier: Modifier = Modifier ) {
     val pagerState = rememberPagerState { listOfOnBoardingData.size }
     val scope = rememberCoroutineScope()
+    val navController = LocalNavigation.current
+    val context = LocalContext.current
     OnBoardingSection(
         modifier = modifier,
         pagerContent = {

@@ -27,7 +27,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.foodorderapp.feature.profile.Profile
 import com.example.foodorderapp.utils.WindowInfo
-import com.example.foodorderapp.utils.typeSafeNavigation.Home
+import com.example.foodorderapp.typeSafeNavigation.Home
 
 val bottomBarScreens = listOf(
     Home::class.qualifiedName,

@@ -27,7 +27,7 @@ import com.example.foodorderapp.feature.location.screen.components.PleaseEnterYo
 import com.example.foodorderapp.feature.location.screen.components.SearchField
 import com.example.foodorderapp.feature.location.screen.components.SearchedItems
 import com.example.foodorderapp.feature.location.screen.components.TopBarForLocationScreen
-import com.example.foodorderapp.utils.typeSafeNavigation.Home
+import com.example.foodorderapp.typeSafeNavigation.Home
 
 @Composable
 fun FindRestaurantScreen(

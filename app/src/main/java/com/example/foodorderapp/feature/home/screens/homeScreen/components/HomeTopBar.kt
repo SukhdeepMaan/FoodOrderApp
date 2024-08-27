@@ -22,8 +22,8 @@ import com.example.foodorderapp.components.TopBarLayout
 import com.example.foodorderapp.feature.home.screens.components.DeliveryToText
 import com.example.foodorderapp.feature.home.screens.components.FilterButtonText
 import com.example.foodorderapp.feature.home.screens.components.LocationText
-import com.example.foodorderapp.utils.typeSafeNavigation.Filter
-import com.example.foodorderapp.utils.typeSafeNavigation.FindRestaurant
+import com.example.foodorderapp.typeSafeNavigation.Filter
+import com.example.foodorderapp.typeSafeNavigation.FindRestaurant
 
 @Composable
 fun HomeTopBar(

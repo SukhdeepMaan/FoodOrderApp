@@ -13,7 +13,7 @@ import com.example.foodorderapp.components.HeaderBelowTextAndButton
 import com.example.foodorderapp.components.RegisterLayout
 import com.example.foodorderapp.feature.auth.forgetPassword.screens.components.HavingProblemButton
 import com.example.foodorderapp.feature.auth.forgetPassword.screens.components.SendAgain
-import com.example.foodorderapp.feature.auth.signIn.screens.components.CupImage
+import com.example.foodorderapp.feature.auth.signIn.ui.screens.components.CupImage
 
 
 @Composable

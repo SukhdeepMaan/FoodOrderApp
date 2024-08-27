@@ -15,7 +15,7 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import com.example.foodorderapp.R
-import com.example.foodorderapp.feature.auth.signIn.screens.components.PasswordWithTextField
+import com.example.foodorderapp.feature.auth.signIn.ui.screens.components.PasswordWithTextField
 
 @Composable
 fun SomeLabelAndFieldsTogether(modifier: Modifier = Modifier) {
