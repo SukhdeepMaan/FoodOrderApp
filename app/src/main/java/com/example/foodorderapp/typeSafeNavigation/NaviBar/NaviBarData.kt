@@ -1,4 +1,4 @@
-package com.example.foodorderapp.utils.NaviBar
+package com.example.foodorderapp.typeSafeNavigation.NaviBar
 
 import androidx.lifecycle.ViewModel
 import com.example.foodorderapp.R

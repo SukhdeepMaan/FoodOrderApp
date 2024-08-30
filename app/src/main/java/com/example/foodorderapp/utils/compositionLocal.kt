@@ -5,5 +5,9 @@ import androidx.navigation.NavHostController
 
 
 val LocalNavigation = staticCompositionLocalOf<NavHostController> {
-    error("error in navhost controller")
+    error("error in NavHost controller")
+}
+
+val LocalWindowInfo = staticCompositionLocalOf<WindowInfo> {
+    error("error in window info")
 }

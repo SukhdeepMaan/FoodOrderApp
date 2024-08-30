@@ -1,4 +1,4 @@
-package com.example.foodorderapp.utils.NaviBar
+package com.example.foodorderapp.typeSafeNavigation.NaviBar
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,6 +28,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.foodorderapp.feature.profile.Profile
 import com.example.foodorderapp.utils.WindowInfo
 import com.example.foodorderapp.typeSafeNavigation.Home
+import com.example.foodorderapp.utils.LocalNavigation
+import com.example.foodorderapp.utils.LocalWindowInfo
 
 val bottomBarScreens = listOf(
     Home::class.qualifiedName,
@@ -35,11 +37,9 @@ val bottomBarScreens = listOf(
 )
 
 @Composable
-fun NavigationBarManager(
-    modifier: Modifier = Modifier,
-    navController: NavHostController,
-    windowInfo: WindowInfo
-) {
+fun NavigationBarManager(modifier: Modifier = Modifier) {
+    val navController = LocalNavigation.current
+    val windowInfo = LocalWindowInfo.current
     val naviViewModel: NaviViewModel = viewModel()
     val selectedIndex by naviViewModel.selectedIndex.collectAsState()
 

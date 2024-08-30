@@ -13,46 +13,43 @@ import com.example.foodorderapp.feature.location.screen.FindRestaurantScreen
 import com.example.foodorderapp.feature.onBoarding.screen.OnBoardingScreen
 import com.example.foodorderapp.feature.profile.profileNavGraph
 import com.example.foodorderapp.utils.LocalNavigation
+import com.example.foodorderapp.utils.LocalWindowInfo
 import com.example.foodorderapp.utils.WindowInfo
 
 @Composable
-fun AppNavGraph(navController: NavHostController, windowInfo: WindowInfo) {
+fun AppNavGraph() {
 
+    val navController = LocalNavigation.current
+    val windowInfo = LocalWindowInfo.current
 
-    CompositionLocalProvider(
-        LocalNavigation provides navController,
-
+    NavHost(
+        navController = navController,
+        startDestination = OnBoarding,
     ) {
-        NavHost(
-            navController = navController,
-            startDestination = OnBoarding,
-        ) {
-            composable<OnBoarding> {
-                OnBoardingScreen()
-            }
-            authNavGraph(navController = navController)
+        composable<OnBoarding> {
+            OnBoardingScreen()
+        }
+        authNavGraph(navController = navController)
 
-            profileNavGraph(navController = navController, windowInfo = windowInfo)
+        profileNavGraph(navController = navController, windowInfo = windowInfo)
 
-            composable<Home> {
-                HomeScreen(navController = navController)
-            }
-            composable<FeaturedPartner> {
-                FeaturedPartnersScreen(navController = navController, windowInfo = windowInfo)
-            }
-            composable<BestPickRestaurant> {
-                FeaturedPartnersScreen(navController = navController, windowInfo = windowInfo)
-            }
-            composable<AllRestaurant> {
-                FeaturedPartnersScreen(navController = navController, windowInfo = windowInfo)
-            }
-            composable<Filter> {
-                FilterScreen(navController = navController)
-            }
-            composable<FindRestaurant> {
-                FindRestaurantScreen(navController = navController)
-            }
+        composable<Home> {
+            HomeScreen(navController = navController)
+        }
+        composable<FeaturedPartner> {
+            FeaturedPartnersScreen(navController = navController, windowInfo = windowInfo)
+        }
+        composable<BestPickRestaurant> {
+            FeaturedPartnersScreen(navController = navController, windowInfo = windowInfo)
+        }
+        composable<AllRestaurant> {
+            FeaturedPartnersScreen(navController = navController, windowInfo = windowInfo)
+        }
+        composable<Filter> {
+            FilterScreen(navController = navController)
+        }
+        composable<FindRestaurant> {
+            FindRestaurantScreen(navController = navController)
         }
     }
-
 }

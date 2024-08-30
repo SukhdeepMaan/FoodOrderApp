@@ -24,16 +24,17 @@ import com.example.foodorderapp.feature.home.screens.components.FilterButtonText
 import com.example.foodorderapp.feature.home.screens.components.LocationText
 import com.example.foodorderapp.typeSafeNavigation.Filter
 import com.example.foodorderapp.typeSafeNavigation.FindRestaurant
+import com.example.foodorderapp.utils.LocalNavigation
 
 @Composable
 fun HomeTopBar(
     modifier: Modifier = Modifier,
-    navController: NavHostController
 ) {
+    val navController = LocalNavigation.current
     TopBarLayout(
         modifier = modifier,
         trailingIcon = {
-            TextButton(onClick = { navController.navigate( Filter) }) {
+            TextButton(onClick = { navController.navigate(Filter) }) {
                 FilterButtonText()
             }
         },

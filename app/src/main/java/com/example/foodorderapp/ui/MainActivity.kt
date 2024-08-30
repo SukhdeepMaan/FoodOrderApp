@@ -6,75 +6,41 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.example.foodorderapp.components.NewCustomScaffold
-import com.example.foodorderapp.feature.home.screens.homeScreen.HomeScreen
-import com.example.foodorderapp.ui.theme.FoodOrderAppTheme
-import com.example.foodorderapp.utils.NaviBar.NavigationBarManager
-import com.example.foodorderapp.utils.TopBarManager
-import com.example.foodorderapp.utils.rememberWindowInfo
 import com.example.foodorderapp.typeSafeNavigation.AppNavGraph
+import com.example.foodorderapp.ui.theme.FoodOrderAppTheme
+import com.example.foodorderapp.utils.LocalNavigation
+import com.example.foodorderapp.utils.LocalWindowInfo
+import com.example.foodorderapp.typeSafeNavigation.NaviBar.NavigationBarManager
+import com.example.foodorderapp.typeSafeNavigation.topBar.TopBarManager
+import com.example.foodorderapp.utils.rememberWindowInfo
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        enableEdgeToEdge()
+        //enableEdgeToEdge()
         setContent {
             val navController = rememberNavController()
             val windowInfo = rememberWindowInfo()
             FoodOrderAppTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                CompositionLocalProvider(
+                    LocalNavigation provides navController,
+                    LocalWindowInfo provides windowInfo
                 ) {
-                    NewCustomScaffold(
-                        topBar = {
-                            TopBarManager(
-                                navController = navController,
-                            )
-                        },
-                        navigationBar = {
-                            // TODO crate a list of screens that need a navigationBar otherwise pass null if you want to check condition inside the NavigationBarManager that is also possible but null value will have to be passed by callback function
-                            NavigationBarManager(
-                                navController = navController,
-                                windowInfo = windowInfo
-                            )
-                        }
-
+                    Surface(
+                        modifier = Modifier.fillMaxSize(),
+                        color = MaterialTheme.colorScheme.background
                     ) {
-                        AppNavGraph(navController = navController, windowInfo = windowInfo)
-                        //HomeScreen(navController = navController)
+                        NewCustomScaffold(
+                            topBar = { TopBarManager() },
+                            navigationBar = { NavigationBarManager() }
+                        ) { AppNavGraph() }
                     }
                 }
             }
         }
     }
 }
-
-
-/*  //SignInScreen()
-                    //ForgetPasswordStepOne()
-                    //ForgetPasswordStepTwo()
-                  //  SignUpScreen()
-                   // OnBoardingScreen()
-                    //SingInByNumberScreen()
-                    //OtpVerificationScreen()
-                    //FindRestaurantScreen()
-                    //ProfileSettingsScreen()
-                    //ChangePasswordScreen()
-                    //DoNotHaveAnyCardScreen(windowInfo = windowInfo)
-                    //AddPaymentMethodScreen(windowInfo = windowInfo)
-                    //PaymentMethodListScreen()
-                    //AddSocialAccountScreen(windowInfo = windowInfo)
-                    //ReferToFriendScreen( windowInfo = windowInfo)
-                    //FilterScreen()
-                    */
-
-/*//SearchScreen(windowInfo = windowInfo)
-                     //FeaturedPartnersScreen(windowInfo = windowInfo)
-                     //HomeScreen()
-                     //AccountSettingScreen()*/

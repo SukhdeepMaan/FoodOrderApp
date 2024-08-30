@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.compose.compiler)
+
 }
 
 android {
@@ -72,8 +74,5 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose) // view model
     implementation(libs.kotlinx.serialization.json)  // serialization json
     implementation(libs.navigation.compose)         // type safe navigation
-
-    implementation(libs.icons.extended)
-
 
 }

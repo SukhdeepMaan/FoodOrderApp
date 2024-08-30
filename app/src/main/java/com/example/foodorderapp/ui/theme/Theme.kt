@@ -9,25 +9,25 @@ import androidx.compose.ui.graphics.Color
 
 private val DarkColorScheme = darkColorScheme(
     primary = accentColor,
-    onPrimary = bgColor,
-    background = bgColor,
-    onBackground = mainColor,
-    surface = bgColor,
-    onSurface = mainColor,
-    primaryContainer = bgColor,
-    onPrimaryContainer = mainColor,
+    onPrimary = white,
+    background = black,
+    onBackground = white,
+    surface = black,
+    onSurface = white,
+    primaryContainer = accentColor,
+    onPrimaryContainer = black,
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = accentColor,
-    onPrimary = bgColor,
+    onPrimary = white,
     secondary = Color.Gray,
-    background = bgColor,
-    onBackground = mainColor,
-    surface = bgColor,
-    onSurface = mainColor,
+    background = white,
+    onBackground = black,
+    surface = white,
+    onSurface = black,
     primaryContainer = accentColor,
-    onPrimaryContainer = mainColor,
+    onPrimaryContainer = black,
     tertiaryContainer = superLightGray,
 )
 

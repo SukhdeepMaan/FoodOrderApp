@@ -1,43 +1,12 @@
-package com.example.foodorderapp.utils
+package com.example.foodorderapp.typeSafeNavigation.topBar
 
-import androidx.compose.foundation.background
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.foodorderapp.components.AppHeader
 import com.example.foodorderapp.feature.auth.navigation.Auth
-import com.example.foodorderapp.feature.home.screens.homeScreen.components.HomeTopBar
 import com.example.foodorderapp.feature.profile.Profile
 import com.example.foodorderapp.feature.profile.profileSettings.payment.PaymentMethod
 import com.example.foodorderapp.typeSafeNavigation.Filter
-import com.example.foodorderapp.typeSafeNavigation.Home
 
-@Composable
-fun TopBarManager(
-    modifier: Modifier = Modifier,
-    navController: NavHostController,
-) {
-    val navBackStackEntry by navController.currentBackStackEntryAsState()
-    when (val currentRoute = navBackStackEntry?.destination?.route?.substringBefore('?')) {
-        in commonTopBarScreen -> {
-            AppHeader(
-                modifier = modifier.background(color = Color.Gray),
-                title = getTitle(currentRoute),
-            ) { navController.popBackStack() }
-        }
-        Home::class.qualifiedName -> {
-            HomeTopBar(navController = navController)
-        }
 
-        else -> {}
-    }
-    // TODO  there is a common top bar named AppHeader that will be used for multiple screens and everything will be based on navController destination
-    //HomeTopBar(navController = navController)
-}
-
+// All the screens that have common top bar
 val commonTopBarScreen = listOf(
     Auth.SignIn::class.qualifiedName,
     Auth.SignUp::class.qualifiedName,
@@ -52,6 +21,7 @@ val commonTopBarScreen = listOf(
     Filter::class.qualifiedName,
 )
 
+// All the titles of the screens that have common top bar
 enum class TopTitle(val title: String) {
     SIGN_IN("Sign In"),
     SIGN_UP("Sign Up"),
@@ -67,6 +37,7 @@ enum class TopTitle(val title: String) {
     BURGERS("Burgers"),
     BROWSER_FOODS("Browser Foods")
 }
+
 
 fun getTitle(currentRoute: String?): String {
     return when (currentRoute) {
