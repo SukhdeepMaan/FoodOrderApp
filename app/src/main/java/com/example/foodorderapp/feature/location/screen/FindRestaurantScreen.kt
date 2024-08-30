@@ -27,7 +27,6 @@ import com.example.foodorderapp.feature.location.screen.components.PleaseEnterYo
 import com.example.foodorderapp.feature.location.screen.components.SearchField
 import com.example.foodorderapp.feature.location.screen.components.SearchedItems
 import com.example.foodorderapp.feature.location.screen.components.TopBarForLocationScreen
-import com.example.foodorderapp.typeSafeNavigation.Home
 
 @Composable
 fun FindRestaurantScreen(
@@ -96,7 +95,7 @@ fun FindRestaurantScreen(
                     .padding(horizontal = 24.dp)
                     .offset(y = with(localDensity) { totalHeight.toDp() + 26.dp }),
                 onClick = {
-                    navController.navigate(Home(userId = 1))
+                    /*navController.navigate(Home(userId = 1))*/
                 }
             )
         }

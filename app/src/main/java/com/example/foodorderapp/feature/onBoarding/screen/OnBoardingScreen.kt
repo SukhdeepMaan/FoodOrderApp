@@ -21,7 +21,6 @@ fun OnBoardingScreen(modifier: Modifier = Modifier ) {
     val pagerState = rememberPagerState { listOfOnBoardingData.size }
     val scope = rememberCoroutineScope()
     val navController = LocalNavigation.current
-    val context = LocalContext.current
     OnBoardingSection(
         modifier = modifier,
         pagerContent = {

@@ -33,7 +33,7 @@ fun AppNavGraph() {
 
         profileNavGraph(navController = navController, windowInfo = windowInfo)
 
-        composable<Home> {
+        composable<Route.Home> {
             HomeScreen(navController = navController)
         }
         composable<FeaturedPartner> {

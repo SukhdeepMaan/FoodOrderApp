@@ -26,13 +26,13 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.foodorderapp.feature.profile.Profile
+import com.example.foodorderapp.typeSafeNavigation.Route
 import com.example.foodorderapp.utils.WindowInfo
-import com.example.foodorderapp.typeSafeNavigation.Home
 import com.example.foodorderapp.utils.LocalNavigation
 import com.example.foodorderapp.utils.LocalWindowInfo
 
 val bottomBarScreens = listOf(
-    Home::class.qualifiedName,
+    Route.Home::class.qualifiedName,
     Profile.ProfileSetting::class.qualifiedName
 )
 
@@ -46,7 +46,7 @@ fun NavigationBarManager(modifier: Modifier = Modifier) {
     val onItemSelected: (Int) -> Unit = { index ->
         naviViewModel.setSelectedIndex(index)
         when (index) {
-            0 -> navController.navigate(Home(userId = 1))
+            0 -> navController.navigate(Route.Home(1))
             //  1 -> navController.navigate("otherScreen") // Example
             //  2 -> navController.navigate("anotherScreen") // Example
             3 -> navController.navigate(Profile)

@@ -19,7 +19,6 @@ import com.example.foodorderapp.feature.auth.signUp.screens.components.CreateAcc
 import com.example.foodorderapp.feature.auth.signUp.screens.components.HintLineWithButton
 import com.example.foodorderapp.feature.auth.signUp.screens.components.SomeButtonsTogether
 import com.example.foodorderapp.feature.auth.signUp.screens.components.SomeLabelAndFieldsTogether
-import com.example.foodorderapp.typeSafeNavigation.Home
 
 @Composable
 fun SignUpScreen(
@@ -51,7 +50,7 @@ fun SignUpScreen(
                 SomeLabelAndFieldsTogether()
                 Spacer(modifier = Modifier.height(48.dp))
                 SomeButtonsTogether(
-                    signUp = { navController.navigate(Home(userId = 1)) },
+                    signUp = { /*navController.navigate(Home(userId = 1)) */},
                     signInWithFacebook = { toast.show() },
                     signInWithGoogle = { toast.show() }
                 )
