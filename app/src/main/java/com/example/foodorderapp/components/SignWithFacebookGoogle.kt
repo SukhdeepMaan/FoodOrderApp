@@ -22,8 +22,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.foodorderapp.R
-import com.example.foodorderapp.ui.theme.fbColor
-import com.example.foodorderapp.ui.theme.gothicSemiBold
+import com.example.foodorderapp.theme.fbColor
+import com.example.foodorderapp.theme.gothicSemiBold
 
 /**
  * A composable function that displays a button for signing in with either Google or Facebook. The button is customizable in terms of

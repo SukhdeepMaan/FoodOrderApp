@@ -22,8 +22,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import com.example.foodorderapp.ui.theme.outlineColor
-import com.example.foodorderapp.ui.theme.poppinsRegular
+import com.example.foodorderapp.theme.outlineColor
+import com.example.foodorderapp.theme.poppinsRegular
 import com.example.foodorderapp.utils.onBooleanChange
 import com.example.foodorderapp.utils.onValueChange
 

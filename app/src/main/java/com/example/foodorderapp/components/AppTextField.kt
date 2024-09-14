@@ -1,6 +1,7 @@
 package com.example.foodorderapp.components
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
@@ -9,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -52,7 +54,7 @@ fun AppTextField(
     value: String,
     label: String,
     onTrailingIconClick: onClick = {},
-    trailingIcon: ImageVector,
+    trailingIcon: ImageVector?,
     isShowPassword: Boolean = true,
     keyboardOptions: KeyboardOptions = KeyboardOptions(),
     onValueChange: onValueChange
@@ -73,11 +75,15 @@ fun AppTextField(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent
             ),
+            singleLine = true,
             keyboardOptions = keyboardOptions,
             trailingIcon = {
                 AppIcon(
                     imageVector = trailingIcon,
-                    modifier = Modifier.clickable {
+                    modifier = Modifier.clickable(
+                        indication = null,
+                        interactionSource = remember { MutableInteractionSource() }
+                    ) {
                         onTrailingIconClick()
                     }
                 )

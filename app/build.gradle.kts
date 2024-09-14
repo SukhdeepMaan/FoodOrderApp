@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.kapt)
 
 }
 
@@ -74,5 +76,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose) // view model
     implementation(libs.kotlinx.serialization.json)  // serialization json
     implementation(libs.navigation.compose)         // type safe navigation
+
+    kapt(libs.dagger.hilt.compiler)
+    implementation(libs.dagger.hilt)
+    implementation(libs.androidx.hilt.navigation.compose)
 
 }

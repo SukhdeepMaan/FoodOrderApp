@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import com.example.foodorderapp.R
-import com.example.foodorderapp.ui.theme.poppinsRegular
+import com.example.foodorderapp.theme.poppinsRegular
 
 /**
  * A composable function that displays a customizable app header with a title and a back button.

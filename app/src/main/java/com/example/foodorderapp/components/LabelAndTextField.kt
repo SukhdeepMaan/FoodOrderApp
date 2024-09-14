@@ -39,6 +39,7 @@ fun LabelAndTextField(
     modifier: Modifier = Modifier,
     text: String,
     value: String,
+    isPassword: Boolean = false,
     leadingIcon: @Composable (() -> Unit)? = null,
     @DrawableRes trailingIcon: Int? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
@@ -53,7 +54,8 @@ fun LabelAndTextField(
             leadingIcon = leadingIcon,
             keyboardOptions = keyboardOptions,
             showInputValue = showInputValue,
-            onValueChange = onValueChange
+            onValueChange = onValueChange,
+            isPassword = isPassword
         )
     }
 }

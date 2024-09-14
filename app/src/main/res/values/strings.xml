@@ -83,4 +83,6 @@
     <string name="location_picker">Location Picker</string>
     <string name="we_have_sent_an_instructions_email_to">We have sent an instructions email to</string>
     <string name="sajin_tamang_gmail_com">sajin tamang@gmail.com.</string>
+    <string name="new_password">NEW PASSWORD</string>
+    <string name="confirm_password">CONFIRM PASSWORD</string>
 </resources>
